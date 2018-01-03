@@ -49,11 +49,11 @@ that element, starting at the end of the list. The `IndexOutOfBoundsException` i
     
     Integer n;
 
-    n = list.size() > 0 ? list.get(list.size() - 1) : null;
+    n = list.size() >= 1 ? list.get(list.size() - 1) : null;
     n = ary.get(-1);
     // n           : 17
-    
-    n = list.size() > 0 ? list.get(list.size() - 2) : null;
+
+    n = list.size() >= 2 ? list.get(list.size() - 2) : null;
     n = ary.get(-2);
     // n           : 3
     
@@ -63,7 +63,7 @@ that element, starting at the end of the list. The `IndexOutOfBoundsException` i
     
     n = list.size() > 8 ? list.get(list.size() - 8) : null;
     n = ary.get(-8);
-    // n           : null    
+    // n           : null
 ```
 
 # Append (Add)
