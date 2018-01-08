@@ -346,8 +346,6 @@ It's simple to get a subset, using the same negative indices as `get`.
     // joined      : bart, grandpa, homer, lisa, maggie and marge
 ```
 
-> We think in generalities, but we live in detail. -- Alfred North Whitehead
-
 # Related
 
 * [home]({{ site.baseurl }}/)

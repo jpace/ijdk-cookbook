@@ -88,9 +88,9 @@ Thus, one might want to use the `get(int, int)` method instead of `subList`:
     assertEqual(IntegerList.of(3, 1, 7), result, message("ilist", ilist));
 ```
 
-> Einstein repeatedly argued that there must be simplified explanations of nature, because God is
-not capricious or arbitrary. No such faith comforts the software engineer. -- Frederick P. Brooks
-Jr.
+This is complicated, but gives `BaseArray` subclasses flexibility that does not exist in the
+equivalent JDK classes. The IJDK `Str` class is undergoing similar revisions, returning references
+to `Str` instead of `java.lang.String`, which it wraps.
 
 # Related
 
