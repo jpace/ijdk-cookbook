@@ -19,7 +19,9 @@ public class Array<T extends Object> extends BaseArray<T, Array<T>>
 And `BaseArray`:
 
 ```java
-public abstract class BaseArray<T extends Object, C extends BaseArray<T, C>> extends ArrayList<T> implements Sequence<T>
+public abstract class BaseArray<T extends Object, C extends BaseArray<T, C>>
+    extends ArrayList<T>
+    implements Sequence<T>
 ```
 
 What all of that means is that `BaseArray` accepts a collection (of type `C`) that contains objects
@@ -28,8 +30,8 @@ of type `T`. And `BaseArray` extends `ArrayList`, with its elements being of typ
 Where `C` is relevant is that `BaseArray` has methods that return the same type of object as
 `BaseArray`, even if subclassed.
 
-For example, the `unique` (as well as `sorted`, `compact`, `get(int, int)`) method returns an
-instance of type `C`:
+For example, the `unique` (as well as others, including `append`, `elements`, `sorted`, `compact`,
+`get(from, to)`) method returns an instance of type `C`:
 
 ```java
     public C unique() {
