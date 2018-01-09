@@ -82,7 +82,7 @@ comparison, the JDK `java.util.ArrayList#subList` method returns a `java.util.Li
 valuable for anyone subclassing `ArrayList` and wanting `subList` to return a list of the same type
 as the subclass.
 
-Thus, one might want to use the `get(int, int)` method instead of `subList`:
+Thus, one might want to use the `get(from, to)` method instead of `subList`:
 
 ```java
     IntegerList ilist = IntegerList.of(2, 3, 1, 7, 8));
