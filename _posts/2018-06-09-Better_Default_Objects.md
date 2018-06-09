@@ -13,7 +13,6 @@ subclasses only need to delegate to the same methods in Objects.
 For example, in the `KeyValue` class (edited for brevity), 
 
 ```java
-
     public boolean equals(Object obj) {
         if (obj instanceof KeyValue) {
             KeyValue<?, ?> other = (KeyValue)obj;
@@ -34,6 +33,38 @@ For example, in the `KeyValue` class (edited for brevity),
 
     public Array<Object> getInstanceValues() {
         return Array.of(key, value);
+    }
+```
+
+Objects#equals simply compares each element returned by `getInstanceValues`:
+
+```java
+    public static boolean equals(HasInstanceValues x, HasInstanceValues y) {
+        if (x == null) {
+            return y == null;
+        }
+        else if (y == null) {
+            return false;
+        }
+        else {
+            return Arrays.equals(getInstanceObjects(x), getInstanceObjects(y));
+        }
+    }
+```
+
+Similarly, `hashCode` and `toString` use the elements returned by `getInstanceObjects`:
+
+```java
+    public static int hashCode(HasInstanceValues x) {
+        return x == null ? 0 : Arrays.hashCode(getInstanceObjects(x));
+    }
+
+    public static String toString(HasInstanceValues x) {
+        return toString(x, ", ");
+    }
+
+    public static String toString(HasInstanceValues x, String delim) {
+        return x == null ? null : x.getInstanceValues().join(delim);
     }
 ```
 
